@@ -1,26 +1,34 @@
-import React from "react";
-import "./App.css";
+import React, {Component} from "react";
 
-const Nome = (props) => {
+class App extends Component{
 
-  return (
-    <div className='estilo'>
-      {props.texto}
-    </div>
-  )
-}
+  constructor(props){
+    super(props);
 
-function App() {
-  return (
-    <>
+    this.state = {
+      titulo: "Primeira página com Class Component"
+    }
+
+    this.mudar = this.mudar.bind(this);
+  }
+
+  mudar(){
+    var novoTitulo = "Aprendi a utilizar Class Component";
+
+    this.setState({titulo: novoTitulo});
+  }
+
+  render(){
+    return (
       <div>
-        <Nome texto="Eduardo Lino" />
-        <Nome texto="Maria" />
-        <Nome texto="José" />
-        <Nome texto="Olivia" />
+        <h1> {this.state.titulo} </h1>
+        <button onClick={this.mudar}>Mudar Título</button>
+        
       </div>
-    </>
-  );
+    )
+  }
+
 }
 
 export default App;
+
